@@ -6,7 +6,7 @@ import FaShapes from "@meronex/icons/fa/FaShapes";
 export const CustomBackgroundSection = {
   name: "customBackground",
   Tab: (props) => (
-    <SectionTab name="Custom Background" {...props}>
+    <SectionTab name="Background" {...props}>
       <FaShapes icon="new-text-box" />
     </SectionTab>
   ),

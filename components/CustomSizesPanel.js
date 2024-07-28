@@ -7,7 +7,7 @@ import { Button } from "@blueprintjs/core";
 export const CustomSizesPanel = {
   name: "sizes",
   Tab: (props) => (
-    <SectionTab name="Sizes" {...props}>
+    <SectionTab name="Size" {...props}>
       <GiResize icon="new-text-box" />
     </SectionTab>
   ),
