@@ -1,4 +1,16 @@
-import { SidePanel, DEFAULT_SECTIONS } from "polotno/side-panel";
+import {
+  SidePanel,
+  TextSection,
+  PhotosSection,
+  ElementsSection,
+  TemplatesSection,
+  UploadSection,
+  BackgroundSection,
+  SizeSection,
+  LayersSection,
+  SectionTab,
+  DEFAULT_SECTIONS,
+} from "polotno/side-panel";
 import React from "react";
 import { observer } from "mobx-react-lite";
 import { InformationSection, InformationTab } from "./InformationSection";
@@ -10,7 +22,12 @@ export const CustomSidePanel = (props) => {
     { name: "information", Tab: InformationTab, Panel: InformationSection },
     CustomBackgroundSection,
     CustomSizesPanel,
-    ...DEFAULT_SECTIONS,
+    TemplatesSection,
+    TextSection,
+    ElementsSection,
+    UploadSection,
+    LayersSection,
+    // ...DEFAULT_SECTIONS,
   ];
 
   return <SidePanel store={props.store} sections={sections} />;

@@ -28,7 +28,7 @@ export const Editor = () => {
       </SidePanelWrap>
       <WorkspaceWrap>
         <CustomToolbar store={store} />
-        <Workspace store={store} />
+        <Workspace store={store} components={{ PageControls: () => null }} />
         <ZoomButtons store={store} />
       </WorkspaceWrap>
     </PolotnoContainer>
