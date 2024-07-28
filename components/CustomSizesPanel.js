@@ -19,24 +19,59 @@ export const CustomSizesPanel = {
       { width: 1500, height: 750, label: "60x30 inches" },
     ];
 
+    const MAX_WIDTH = 200; // maximum width for the boxes in the sidebar
+    const SCALE_FACTOR = 0.2; // scaling factor for sizes
+
     return (
-      <div>
-        {AVAILABLE_SIZES.map(({ width, height, label }, i) => (
-          <Button
-            key={i}
-            style={{ width: "100%", marginBottom: "20px" }}
-            onClick={() => {
-              if (store.activePage) {
-                store.activePage.set({
-                  width: width,
-                  height: height,
-                });
-              }
-            }}
-          >
-            {label}
-          </Button>
-        ))}
+      <div
+        style={{
+          padding: "10px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        {AVAILABLE_SIZES.map(({ width, height, label }, i) => {
+          const displayWidth = width * SCALE_FACTOR;
+          const displayHeight = height * SCALE_FACTOR;
+
+          return (
+            <Button
+              key={i}
+              style={{
+                width: displayWidth,
+                height: displayHeight,
+                marginBottom: "20px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                position: "relative",
+                padding: 0,
+              }}
+              onClick={() => {
+                if (store.activePage) {
+                  store.activePage.set({
+                    width: width,
+                    height: height,
+                  });
+                }
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  pointerEvents: "none",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {label}
+              </div>
+            </Button>
+          );
+        })}
       </div>
     );
   }),

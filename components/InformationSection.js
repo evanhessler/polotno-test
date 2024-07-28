@@ -103,64 +103,66 @@ export const InformationSection = observer(({ store }) => {
       </FormGroup>
       {showSecondPerson && (
         <>
-          <h3>Person 2</h3>
-          <FormGroup label="First Name">
-            <InputGroup
-              value={person2.firstName}
-              onChange={(e) =>
-                handleInputChange(
-                  person2,
-                  setPerson2,
-                  "firstName",
-                  e.target.value
-                )
-              }
-            />
-          </FormGroup>
-          <FormGroup label="Middle Name">
-            <InputGroup
-              value={person2.middleName}
-              onChange={(e) =>
-                handleInputChange(
-                  person2,
-                  setPerson2,
-                  "middleName",
-                  e.target.value
-                )
-              }
-            />
-          </FormGroup>
-          <FormGroup label="Last Name">
-            <InputGroup
-              value={person2.lastName}
-              onChange={(e) =>
-                handleInputChange(
-                  person2,
-                  setPerson2,
-                  "lastName",
-                  e.target.value
-                )
-              }
-            />
-          </FormGroup>
-          <FormGroup label="Date of Birth">
-            <InputGroup
-              type="date"
-              value={person2.dob}
-              onChange={(e) =>
-                handleInputChange(person2, setPerson2, "dob", e.target.value)
-              }
-            />
-          </FormGroup>
-          <FormGroup label="Date of Death">
-            <InputGroup
-              type="date"
-              value={person2.dod}
-              onChange={(e) =>
-                handleInputChange(person2, setPerson2, "dod", e.target.value)
-              }
-            />
-          </FormGroup>
+          <div style={{ marginTop: "30px" }}>
+            <h3>Person 2</h3>
+            <FormGroup label="First Name">
+              <InputGroup
+                value={person2.firstName}
+                onChange={(e) =>
+                  handleInputChange(
+                    person2,
+                    setPerson2,
+                    "firstName",
+                    e.target.value
+                  )
+                }
+              />
+            </FormGroup>
+            <FormGroup label="Middle Name">
+              <InputGroup
+                value={person2.middleName}
+                onChange={(e) =>
+                  handleInputChange(
+                    person2,
+                    setPerson2,
+                    "middleName",
+                    e.target.value
+                  )
+                }
+              />
+            </FormGroup>
+            <FormGroup label="Last Name">
+              <InputGroup
+                value={person2.lastName}
+                onChange={(e) =>
+                  handleInputChange(
+                    person2,
+                    setPerson2,
+                    "lastName",
+                    e.target.value
+                  )
+                }
+              />
+            </FormGroup>
+            <FormGroup label="Date of Birth">
+              <InputGroup
+                type="date"
+                value={person2.dob}
+                onChange={(e) =>
+                  handleInputChange(person2, setPerson2, "dob", e.target.value)
+                }
+              />
+            </FormGroup>
+            <FormGroup label="Date of Death">
+              <InputGroup
+                type="date"
+                value={person2.dod}
+                onChange={(e) =>
+                  handleInputChange(person2, setPerson2, "dod", e.target.value)
+                }
+              />
+            </FormGroup>
+          </div>
         </>
       )}
     </div>
@@ -168,7 +170,7 @@ export const InformationSection = observer(({ store }) => {
 });
 
 export const InformationTab = (props) => (
-  <SectionTab name="Information" {...props}>
+  <SectionTab name="People" {...props}>
     <FaShapes icon="new-text-box" />
   </SectionTab>
 );
