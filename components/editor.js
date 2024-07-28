@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { PolotnoContainer, SidePanelWrap, WorkspaceWrap } from "polotno";
 import { Toolbar } from "polotno/toolbar/toolbar";
+import { CustomToolbar } from "./CustomToolbar";
 import { ZoomButtons } from "polotno/toolbar/zoom-buttons";
 import { SidePanel } from "polotno/side-panel";
 import { Workspace } from "polotno/canvas/workspace";
@@ -32,20 +33,6 @@ store.addPage({
   width: 1000,
   height: 500,
 });
-
-// Define custom components that return null for color options, transparency, stroke options, and shadow options
-const TextFill = () => null;
-const ImageFill = () => null;
-const SvgFill = () => null;
-const FigureFill = () => null;
-const LineColor = () => null;
-const Opacity = () => null;
-const Stroke = () => null;
-const Shadow = () => null;
-const Effects = () => null;
-const FigureStroke = () => null;
-const FigureSettings = () => null;
-const FigureFilters = () => null;
 
 const backgroundUrls = [
   "https://static.vecteezy.com/system/resources/thumbnails/030/188/390/small_2x/beautiful-natural-stone-background-ai-photo.jpg",
@@ -315,24 +302,7 @@ export const Editor = () => {
         <SidePanel store={store} sections={sections} />
       </SidePanelWrap>
       <WorkspaceWrap>
-        <Toolbar
-          store={store}
-          downloadButtonEnabled
-          components={{
-            TextFill, // Disable text fill color picker
-            ImageFill, // Disable image fill color picker
-            SvgFill, // Disable SVG fill color picker
-            FigureFill, // Disable figure fill color picker
-            LineColor, // Disable line color picker
-            Opacity, // Disable transparency options
-            Stroke, // Disable stroke options
-            Shadow, // Disable shadow options
-            Effects, // Disable the entire effects section
-            FigureStroke,
-            FigureSettings,
-            FigureFilters,
-          }}
-        />
+        <CustomToolbar store={store} />
         <Workspace store={store} />
         <ZoomButtons store={store} />
       </WorkspaceWrap>
