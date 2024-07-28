@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react-lite";
-import { FormGroup, InputGroup, Button } from "@blueprintjs/core";
+import { FormGroup, InputGroup, Button, Icon } from "@blueprintjs/core";
 import { SectionTab } from "polotno/side-panel";
 import FaShapes from "@meronex/icons/fa/FaShapes";
+import { FaUser } from "react-icons/fa";
+import { BsPeopleFill } from "react-icons/bs";
+import { TbSwitch2 } from "react-icons/tb";
 
 export const InformationSection = observer(({ store }) => {
   const [person1, setPerson1] = useState({
@@ -19,6 +22,7 @@ export const InformationSection = observer(({ store }) => {
     dob: "",
     dod: "",
   });
+  const [showSecondPerson, setShowSecondPerson] = useState(false);
 
   const handleInputChange = (person, setPerson, field, value) => {
     setPerson({
@@ -33,22 +37,27 @@ export const InformationSection = observer(({ store }) => {
     setPerson2(temp);
   };
 
-  const isAnyPerson1FieldFilled = Object.values(person1).some(
-    (value) => value !== ""
-  );
-  const isAnyPerson2FieldFilled = Object.values(person2).some(
-    (value) => value !== ""
-  );
+  const toggleSecondPerson = () => {
+    setShowSecondPerson(!showSecondPerson);
+  };
 
   return (
     <div>
-      <Button
-        onClick={swapPersons}
-        disabled={!isAnyPerson1FieldFilled || !isAnyPerson2FieldFilled}
-        icon={<FaShapes icon="exchange" />}
-      >
-        Switch People
-      </Button>
+      <div className="button-container">
+        <Button
+          onClick={toggleSecondPerson}
+          icon={showSecondPerson ? <FaUser /> : <BsPeopleFill />}
+        >
+          {showSecondPerson ? "Hide Second Person" : "Show Second Person"}
+        </Button>
+        <Button
+          onClick={swapPersons}
+          disabled={!showSecondPerson}
+          icon={<TbSwitch2 />}
+        >
+          Swap People
+        </Button>
+      </div>
       <h3>Person 1</h3>
       <FormGroup label="First Name">
         <InputGroup
@@ -92,49 +101,68 @@ export const InformationSection = observer(({ store }) => {
           }
         />
       </FormGroup>
-      <h3>Person 2</h3>
-      <FormGroup label="First Name">
-        <InputGroup
-          value={person2.firstName}
-          onChange={(e) =>
-            handleInputChange(person2, setPerson2, "firstName", e.target.value)
-          }
-        />
-      </FormGroup>
-      <FormGroup label="Middle Name">
-        <InputGroup
-          value={person2.middleName}
-          onChange={(e) =>
-            handleInputChange(person2, setPerson2, "middleName", e.target.value)
-          }
-        />
-      </FormGroup>
-      <FormGroup label="Last Name">
-        <InputGroup
-          value={person2.lastName}
-          onChange={(e) =>
-            handleInputChange(person2, setPerson2, "lastName", e.target.value)
-          }
-        />
-      </FormGroup>
-      <FormGroup label="Date of Birth">
-        <InputGroup
-          type="date"
-          value={person2.dob}
-          onChange={(e) =>
-            handleInputChange(person2, setPerson2, "dob", e.target.value)
-          }
-        />
-      </FormGroup>
-      <FormGroup label="Date of Death">
-        <InputGroup
-          type="date"
-          value={person2.dod}
-          onChange={(e) =>
-            handleInputChange(person2, setPerson2, "dod", e.target.value)
-          }
-        />
-      </FormGroup>
+      {showSecondPerson && (
+        <>
+          <h3>Person 2</h3>
+          <FormGroup label="First Name">
+            <InputGroup
+              value={person2.firstName}
+              onChange={(e) =>
+                handleInputChange(
+                  person2,
+                  setPerson2,
+                  "firstName",
+                  e.target.value
+                )
+              }
+            />
+          </FormGroup>
+          <FormGroup label="Middle Name">
+            <InputGroup
+              value={person2.middleName}
+              onChange={(e) =>
+                handleInputChange(
+                  person2,
+                  setPerson2,
+                  "middleName",
+                  e.target.value
+                )
+              }
+            />
+          </FormGroup>
+          <FormGroup label="Last Name">
+            <InputGroup
+              value={person2.lastName}
+              onChange={(e) =>
+                handleInputChange(
+                  person2,
+                  setPerson2,
+                  "lastName",
+                  e.target.value
+                )
+              }
+            />
+          </FormGroup>
+          <FormGroup label="Date of Birth">
+            <InputGroup
+              type="date"
+              value={person2.dob}
+              onChange={(e) =>
+                handleInputChange(person2, setPerson2, "dob", e.target.value)
+              }
+            />
+          </FormGroup>
+          <FormGroup label="Date of Death">
+            <InputGroup
+              type="date"
+              value={person2.dod}
+              onChange={(e) =>
+                handleInputChange(person2, setPerson2, "dod", e.target.value)
+              }
+            />
+          </FormGroup>
+        </>
+      )}
     </div>
   );
 });
