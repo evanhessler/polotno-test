@@ -3,10 +3,10 @@ import { observer } from "mobx-react-lite";
 import { SectionTab } from "polotno/side-panel";
 import FaShapes from "@meronex/icons/fa/FaShapes";
 
-export const CustomBackgroundSection = {
+export const CustomMaterialSection = {
   name: "customBackground",
   Tab: (props) => (
-    <SectionTab name="Background" {...props}>
+    <SectionTab name="Material" {...props}>
       <FaShapes icon="new-text-box" />
     </SectionTab>
   ),

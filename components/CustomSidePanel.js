@@ -14,14 +14,14 @@ import {
 import React from "react";
 import { observer } from "mobx-react-lite";
 import { InformationSection, InformationTab } from "./InformationSection";
-import { CustomBackgroundSection } from "./CustomBackgroundSection";
+import { CustomMaterialSection } from "./CustomMaterialSection";
 import { CustomSizesPanel } from "./CustomSizesPanel";
 
 export const CustomSidePanel = (props) => {
   const sections = [
     { name: "information", Tab: InformationTab, Panel: InformationSection },
-    CustomBackgroundSection,
     CustomSizesPanel,
+    CustomMaterialSection,
     TemplatesSection,
     TextSection,
     ElementsSection,

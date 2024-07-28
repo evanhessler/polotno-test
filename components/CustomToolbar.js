@@ -21,7 +21,6 @@ export const CustomToolbar = (props) => {
   // Additional UI components to show the custom action buttons
   const ActionControls = () => (
     <div style={{ display: "flex", alignItems: "center" }}>
-      <DownloadButton store={props.store} />
       <Button
         icon="floppy-disk"
         intent="none" // This removes any default BlueprintJS styling
@@ -42,7 +41,7 @@ export const CustomToolbar = (props) => {
         onClick={() => alert("Design Approved")}
         style={{ marginLeft: "10px" }}
       >
-        Approve Design
+        Finalize Design
       </Button>
     </div>
   );
@@ -50,7 +49,7 @@ export const CustomToolbar = (props) => {
   return (
     <Toolbar
       store={props.store}
-      downloadButtonEnabled
+      downloadButtonEnabled={false}
       components={{
         TextFill, // Disable text fill color picker
         ImageFill, // Disable image fill color picker
