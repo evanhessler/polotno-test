@@ -88,7 +88,15 @@ export const InformationSection = observer(({ store }) => {
   };
 
   return (
-    <div>
+    <div
+      style={{
+        height: "100%",
+        overflowY: "auto",
+        paddingLeft: "5px",
+        paddingRight: "5px",
+        paddingTop: "15px",
+      }}
+    >
       <div className="button-container">
         <Button
           onClick={toggleSecondPerson}

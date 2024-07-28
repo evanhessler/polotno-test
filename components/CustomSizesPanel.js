@@ -23,55 +23,58 @@ export const CustomSizesPanel = {
     const SCALE_FACTOR = 0.2; // scaling factor for sizes
 
     return (
-      <div
-        style={{
-          padding: "10px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        {AVAILABLE_SIZES.map(({ width, height, label }, i) => {
-          const displayWidth = width * SCALE_FACTOR;
-          const displayHeight = height * SCALE_FACTOR;
+      <div style={{ padding: "5px" }}>
+        <h3>Select Size</h3>
+        <div
+          style={{
+            padding: "10px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          {AVAILABLE_SIZES.map(({ width, height, label }, i) => {
+            const displayWidth = width * SCALE_FACTOR;
+            const displayHeight = height * SCALE_FACTOR;
 
-          return (
-            <Button
-              key={i}
-              style={{
-                width: displayWidth,
-                height: displayHeight,
-                marginBottom: "20px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                position: "relative",
-                padding: 0,
-              }}
-              onClick={() => {
-                if (store.activePage) {
-                  store.activePage.set({
-                    width: width,
-                    height: height,
-                  });
-                }
-              }}
-            >
-              <div
+            return (
+              <Button
+                key={i}
                 style={{
-                  position: "absolute",
-                  top: "50%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  pointerEvents: "none",
-                  whiteSpace: "nowrap",
+                  width: displayWidth,
+                  height: displayHeight,
+                  marginBottom: "20px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  position: "relative",
+                  padding: 0,
+                }}
+                onClick={() => {
+                  if (store.activePage) {
+                    store.activePage.set({
+                      width: width,
+                      height: height,
+                    });
+                  }
                 }}
               >
-                {label}
-              </div>
-            </Button>
-          );
-        })}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    pointerEvents: "none",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {label}
+                </div>
+              </Button>
+            );
+          })}
+        </div>
       </div>
     );
   }),

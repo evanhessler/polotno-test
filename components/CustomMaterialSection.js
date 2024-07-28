@@ -40,24 +40,6 @@ export const CustomMaterialSection = {
       {
         url: "https://static.vecteezy.com/system/resources/thumbnails/030/188/390/small_2x/beautiful-natural-stone-background-ai-photo.jpg",
       },
-      {
-        url: "https://static.vecteezy.com/system/resources/thumbnails/030/188/390/small_2x/beautiful-natural-stone-background-ai-photo.jpg",
-      },
-      {
-        url: "https://static.vecteezy.com/system/resources/thumbnails/030/188/390/small_2x/beautiful-natural-stone-background-ai-photo.jpg",
-      },
-      {
-        url: "https://static.vecteezy.com/system/resources/thumbnails/030/188/390/small_2x/beautiful-natural-stone-background-ai-photo.jpg",
-      },
-      {
-        url: "https://static.vecteezy.com/system/resources/thumbnails/030/188/390/small_2x/beautiful-natural-stone-background-ai-photo.jpg",
-      },
-      {
-        url: "https://static.vecteezy.com/system/resources/thumbnails/030/188/390/small_2x/beautiful-natural-stone-background-ai-photo.jpg",
-      },
-      {
-        url: "https://static.vecteezy.com/system/resources/thumbnails/030/188/390/small_2x/beautiful-natural-stone-background-ai-photo.jpg",
-      },
     ];
 
     const handleBackgroundSelect = async (image, pos, element, event) => {
@@ -69,8 +51,8 @@ export const CustomMaterialSection = {
     };
 
     return (
-      <div>
-        <p>Select a custom background image:</p>
+      <div style={{ padding: "5px" }}>
+        <h3>Select Material</h3>
         <ImagesGrid
           images={backgroundUrls}
           getPreview={(item) => item.url}
