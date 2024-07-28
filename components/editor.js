@@ -8,6 +8,7 @@ import { createStore } from "polotno/model/store";
 import { observer } from "mobx-react-lite";
 import { Button, InputGroup, FormGroup, Icon } from "@blueprintjs/core";
 import { IconNames } from "@blueprintjs/icons";
+import { GiResize } from "react-icons/gi";
 import {
   TextSection,
   PhotosSection,
@@ -50,6 +51,13 @@ const backgroundUrls = [
   "https://static.vecteezy.com/system/resources/thumbnails/030/188/390/small_2x/beautiful-natural-stone-background-ai-photo.jpg",
   "https://example.com/background2.jpg",
   "https://example.com/background3.jpg",
+];
+
+const AVAILABLE_SIZES = [
+  { width: 500, height: 500, label: "20x20 inches" },
+  { width: 1000, height: 500, label: "40x20 inches" },
+  { width: 1000, height: 1000, label: "40x40 inches" },
+  { width: 1500, height: 750, label: "60x30 inches" },
 ];
 
 const CustomSection = {
@@ -260,9 +268,45 @@ const CustomBackgroundSection = {
   }),
 };
 
+const CustomSizesPanel = {
+  name: "sizes",
+  Tab: (props) => (
+    <SectionTab name="Sizes" {...props}>
+      <GiResize icon="new-text-box" />
+    </SectionTab>
+  ),
+  Panel: observer(({ store }) => {
+    return (
+      <div>
+        {AVAILABLE_SIZES.map(({ width, height, label }, i) => (
+          <Button
+            key={i}
+            style={{ width: "100%", marginBottom: "20px" }}
+            onClick={() => {
+              if (store.activePage) {
+                store.activePage.set({
+                  width: width,
+                  height: height,
+                });
+              }
+            }}
+          >
+            {label}
+          </Button>
+        ))}
+      </div>
+    );
+  }),
+};
+
 console.log("STORE ", store.toJSON());
 
-const sections = [CustomSection, CustomBackgroundSection, ...DEFAULT_SECTIONS];
+const sections = [
+  CustomSection,
+  CustomBackgroundSection,
+  CustomSizesPanel,
+  ...DEFAULT_SECTIONS,
+];
 
 export const Editor = () => {
   return (
@@ -297,8 +341,3 @@ export const Editor = () => {
 };
 
 export default Editor;
-
-// map backspace to remove elements
-// download as SVG
-// take out add page and duplicate page buttons
-// add hide background button to toolbar
