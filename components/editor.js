@@ -297,3 +297,8 @@ export const Editor = () => {
 };
 
 export default Editor;
+
+// map backspace to remove elements
+// download as SVG
+// take out add page and duplicate page buttons
+// add hide background button to toolbar
