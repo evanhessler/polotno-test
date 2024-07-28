@@ -15,6 +15,7 @@ import { Button, InputGroup, FormGroup, Icon } from "@blueprintjs/core";
 import { IconNames } from "@blueprintjs/icons";
 import { GiResize } from "react-icons/gi";
 import FaShapes from "@meronex/icons/fa/FaShapes";
+import { InformationSection, InformationTab } from "./InformationSection";
 
 export const CustomSidePanel = (props) => {
   const backgroundUrls = [
@@ -280,7 +281,7 @@ export const CustomSidePanel = (props) => {
   };
 
   const sections = [
-    CustomSection,
+    { name: "information", Tab: InformationTab, Panel: InformationSection },
     CustomBackgroundSection,
     CustomSizesPanel,
     ...DEFAULT_SECTIONS,
