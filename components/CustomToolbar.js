@@ -28,16 +28,12 @@ export const CustomToolbar = (props) => {
         onClick={() => alert("Design Saved")}
         style={{
           marginLeft: "10px",
-          backgroundColor: "#fff", // Background color for the non-hover state
           color: "#1C2127", // Text color for the non-hover state
           border: "none", // Remove border
           borderRadius: "3px", // Keep rounded corners
           boxShadow: "none",
-          ":hover": {
-            backgroundColor: "rgba(143, 153, 168, 0.15)", // Hover background color
-          },
         }}
-        className="bp3-minimal" // Blueprint class to apply minimal styling
+        className="custom-button" // Blueprint class to apply minimal styling
       >
         Save
       </Button>
