@@ -17,3 +17,7 @@ export default function IndexPage() {
     </div>
   );
 }
+
+// Logo in toolbar
+// Custom shape workspace
+// CSS overflow in sidebar

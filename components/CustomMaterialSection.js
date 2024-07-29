@@ -13,33 +13,17 @@ export const CustomMaterialSection = {
   ),
   Panel: observer(({ store }) => {
     const backgroundUrls = [
-      {
-        url: "https://static.vecteezy.com/system/resources/thumbnails/030/188/390/small_2x/beautiful-natural-stone-background-ai-photo.jpg",
-      },
-      {
-        url: "https://static.vecteezy.com/system/resources/thumbnails/030/188/390/small_2x/beautiful-natural-stone-background-ai-photo.jpg",
-      },
-      {
-        url: "https://static.vecteezy.com/system/resources/thumbnails/030/188/390/small_2x/beautiful-natural-stone-background-ai-photo.jpg",
-      },
-      {
-        url: "https://static.vecteezy.com/system/resources/thumbnails/030/188/390/small_2x/beautiful-natural-stone-background-ai-photo.jpg",
-      },
-      {
-        url: "https://static.vecteezy.com/system/resources/thumbnails/030/188/390/small_2x/beautiful-natural-stone-background-ai-photo.jpg",
-      },
-      {
-        url: "https://static.vecteezy.com/system/resources/thumbnails/030/188/390/small_2x/beautiful-natural-stone-background-ai-photo.jpg",
-      },
-      {
-        url: "https://static.vecteezy.com/system/resources/thumbnails/030/188/390/small_2x/beautiful-natural-stone-background-ai-photo.jpg",
-      },
-      {
-        url: "https://static.vecteezy.com/system/resources/thumbnails/030/188/390/small_2x/beautiful-natural-stone-background-ai-photo.jpg",
-      },
-      {
-        url: "https://static.vecteezy.com/system/resources/thumbnails/030/188/390/small_2x/beautiful-natural-stone-background-ai-photo.jpg",
-      },
+      { url: "Autumn-Brown-1024x1024.png" },
+      { url: "Bahama-Blue_web.png" },
+      { url: "Barre-Gray_02_web.png" },
+      { url: "Carnelian_web.png" },
+      { url: "Charcoal-black_web.png" },
+      { url: "Gold-Star.png" },
+      { url: "Imperial-Rose.png" },
+      { url: "India-Black_05_web.png" },
+      { url: "India-Mist_web.png" },
+      { url: "Jet-Mist_web.png" },
+      { url: "New-Imperial-Red_05_web.png" },
     ];
 
     const handleBackgroundSelect = async (image, pos, element, event) => {
@@ -51,7 +35,7 @@ export const CustomMaterialSection = {
     };
 
     return (
-      <div style={{ padding: "5px" }}>
+      <div style={{ padding: "5px", overflowY: "scroll", height: "100vh" }}>
         <h3>Select Material</h3>
         <ImagesGrid
           images={backgroundUrls}
@@ -62,7 +46,6 @@ export const CustomMaterialSection = {
           getCredit={(image) => <span>Photo by Source</span>}
           rowsNumber={2}
           crossOrigin="anonymous"
-          itemHeight={"150px"}
           error={false}
         />
       </div>
